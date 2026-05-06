@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAXMAN — Anthony Grayson · Live Saxophone | Erie, PA</title>
+<meta name="description" content="Anthony Grayson — Saxman. Live saxophone for weddings, corporate events, and worship. Based in Erie, PA. Available for travel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap">
+<style>
+:root {
+  --ink:        #08080a;
+  --night:      #111114;
+  --shadow:     #1a1a1f;
+  --pearl:      #f4efe6;
+  --ash:        #8c8a85;
+  --champagne:  #c9a96a;
+  --champagne-soft: #d8bf8a;
+  --line:       rgba(201,169,106,0.18);
+  --line-strong:rgba(201,169,106,0.45);
+  --glass:      rgba(8,8,10,0.88);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  color: var(--pearl);
+  background: var(--ink);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  display: inline-block;
+}
+
+/* ─── NAV ─── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.brand-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 0.5em;
+  color: var(--pearl);
+  text-transform: uppercase;
+  padding-right: 0.5em;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--pearl); }
+.nav-toggle { display: none; background: none; border: none; color: var(--champagne); font-size: 1.3rem; cursor: pointer; }
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  text-align: center;
+}
+.btn-gold { background: var(--champagne); color: var(--ink); }
+.btn-gold:hover { background: var(--champagne-soft); letter-spacing: 0.4em; }
+.btn-line {
+  background: transparent;
+  color: var(--champagne);
+  border: 1px solid var(--champagne);
+}
+.btn-line:hover { background: var(--champagne); color: var(--ink); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: stretch;
+}
+.hero-text {
+  padding: 140px 4rem 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(201,169,106,0.10) 0%, transparent 50%),
+    var(--ink);
+  position: relative;
+}
+.hero-text .location {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.hero-text .location::before {
+  content: '';
+  width: 50px;
+  height: 1px;
+  background: var(--champagne);
+}
+.hero-text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.hero-text h1 em { font-style: italic; color: var(--champagne); font-weight: 300; }
+.hero-text .name {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 2rem;
+}
+.hero-text .pitch {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  line-height: 1.45;
+  color: var(--pearl);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--champagne);
+}
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* hero photo */
+.hero-photo {
+  background: var(--night);
+  background-image: url('assets/hero-saxman.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--ink) 0%, transparent 25%, transparent 100%);
+  pointer-events: none;
+}
+.hero-photo .photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ash);
+  text-align: center;
+  padding: 2rem;
+}
+/* show placeholder only if image fails */
+.hero-photo:not([data-loaded]) .photo-placeholder { display: flex; }
+
+/* ─── SECTIONS ─── */
+section {
+  padding: 100px 2rem;
+}
+.wrap { max-width: 1100px; margin: 0 auto; }
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: end;
+}
+.section-head .left .eyebrow { margin-bottom: 1rem; }
+.section-head .left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1;
+}
+.section-head .left h2 em { font-style: italic; color: var(--champagne); font-weight: 300; }
+.section-head .right p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ash);
+}
+
+/* ─── ABOUT ─── */
+.about {
+  background: var(--ink);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.about-photo {
+  aspect-ratio: 1/1;
+  background: var(--shadow);
+  background-image: url('assets/sax-detail.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--line-strong);
+  position: relative;
+}
+.about-photo::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px; right: 12px; bottom: 12px;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+.about-body p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--pearl);
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+.about-body p.muted { color: var(--ash); font-size: 0.95rem; }
+.about-body p .accent { color: var(--champagne); font-style: italic; }
+
+/* ─── PACKAGES (only 2) ─── */
+.packages {
+  background: var(--shadow);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.package-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 2.5rem;
+}
+.package {
+  background: var(--ink);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.package .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--champagne);
+  margin-bottom: 1rem;
+}
+.package h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.package h3 em { font-style: italic; color: var(--champagne); font-weight: 300; }
+.package .tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 1.5rem;
+}
+.package .desc {
+  font-size: 0.95rem;
+  color: var(--pearl);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+.package .price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.package .price-row .from {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.package .price-row .amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: var(--champagne);
+  line-height: 1;
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+  color: var(--ash);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+.pricing-note a { color: var(--champagne); border-bottom: 1px solid var(--champagne); padding-bottom: 2px; }
+
+/* ─── BOOKING ─── */
+.booking { background: var(--ink); }
+.booking-frame {
+  background: var(--shadow);
+  border: 1px solid var(--line);
+  padding: 3rem;
+  position: relative;
+}
+.booking-frame::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px; right: 12px; bottom: 12px;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+.booking-frame > * { position: relative; z-index: 2; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.field { display: flex; flex-direction: column; }
+.field label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 0.6rem;
+}
+.field input, .field select, .field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+  padding: 0.65rem 0;
+  color: var(--pearl);
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  transition: border-color 0.3s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--champagne);
+}
+.field textarea { min-height: 100px; resize: vertical; }
+.field select option { background: var(--ink); color: var(--pearl); }
+.form-submit { width: 100%; margin-top: 1.5rem; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.footer-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--pearl);
+  margin-bottom: 0.5rem;
+}
+.footer-tag {
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-bottom: 1.5rem;
+}
+.footer-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.footer-meta a { color: var(--champagne); }
+
+/* ─── MOBILE MENU ─── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem 2rem;
+  z-index: 99;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  padding: 0.85rem 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  border-bottom: 1px solid var(--line);
+}
+.mobile-menu a:last-child { border-bottom: none; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .brand-mark { font-size: 1.2rem; letter-spacing: 0.4em; }
+
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-text { padding: 110px 1.5rem 60px; order: 2; }
+  .hero-photo { order: 1; min-height: 60vh; }
+  .hero-photo::after {
+    background: linear-gradient(180deg, transparent 50%, var(--ink) 100%);
+  }
+
+  section { padding: 70px 1.25rem; }
+  .section-head { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .package-grid { grid-template-columns: 1fr; }
+  .booking-frame { padding: 1.75rem; }
+  .booking-frame::before { top: 8px; left: 8px; right: 8px; bottom: 8px; }
+  .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ───────── NAV ───────── -->
+<nav class="nav">
+  <a href="#top" class="brand-mark">Saxman</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#booking">Inquire</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('open')">≡</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+  <a href="#packages" onclick="document.getElementById('mobileMenu').classList.remove('open')">Packages</a>
+  <a href="#booking" onclick="document.getElementById('mobileMenu').classList.remove('open')">Inquire</a>
+</div>
+
+<!-- ───────── HERO ───────── -->
+<header class="hero" id="top">
+  <div class="hero-text">
+    <div class="location">
+      <span class="eyebrow">Erie, PA · Available to Travel</span>
+    </div>
+    <h1>Sax<em>man</em>.</h1>
+    <p class="name">Anthony Grayson · Saxophonist</p>
+    <p class="pitch">Live saxophone for the moments that deserve a soundtrack of their own.</p>
+    <div class="hero-cta">
+      <a href="#booking" class="btn btn-gold">Inquire About Your Date</a>
+      <a href="#packages" class="btn btn-line">Packages</a>
+    </div>
+  </div>
+  <div class="hero-photo" id="heroPhoto">
+    <div class="photo-placeholder">
+      <div>
+        <em style="display:block; margin-bottom:0.5rem;">Drop a performance photo named</em>
+        <strong style="color:var(--champagne); font-family: 'Manrope', sans-serif; letter-spacing: 0.2em; font-size: 0.85rem;">hero-saxman.jpg</strong>
+        <em style="display:block; margin-top:0.5rem; font-size:0.85rem;">into this folder to fill this space.</em>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── ABOUT ───────── -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">About</span>
+        <h2>The artist <em>behind</em> the horn.</h2>
+      </div>
+      <div class="right">
+        <p>Anthony Grayson — known on stage as Saxman — is a working saxophonist out of Erie, Pennsylvania. Versatile sound across jazz, R&B, gospel, contemporary worship, and modern pop.</p>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo" id="aboutPhoto" aria-label="Saxophone detail"></div>
+      <div class="about-body">
+        <p>He plays the cocktail hour like it's his living room. He turns a wedding ceremony into something nobody forgets. He's the live moment a corporate dinner didn't know it needed.</p>
+        <p>He's been playing long enough to read a room before the first note — and that's the difference between a saxophonist <span class="accent">at</span> your event and a saxophonist <span class="accent">in</span> your event.</p>
+        <p class="muted">Based in Erie, PA, available for travel. Travel rates apply outside 30 miles. Anthony brings his own sound system to every event — one less thing for you to think about.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PACKAGES (only 2) ───────── -->
+<section class="packages" id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Packages</span>
+        <h2>Two ways to <em>book</em>.</h2>
+      </div>
+      <div class="right">
+        <p>Sound system included on every booking. Pick the package — or ask for a custom quote.</p>
+      </div>
+    </div>
+
+    <div class="package-grid">
+      <div class="package">
+        <span class="num">i.</span>
+        <h3>Solo <em>Sax</em></h3>
+        <span class="tag">Anthony · Sound System Included</span>
+        <p class="desc">Just Anthony, his horn, and his own PA. Weddings, ceremonies, cocktail hours, dinners, worship services, corporate events, private parties.</p>
+        <div class="price-row">
+          <span class="from">From</span>
+          <span class="amount">$350</span>
+        </div>
+      </div>
+
+      <div class="package">
+        <span class="num">ii.</span>
+        <h3>Sax <em>+</em> Band</h3>
+        <span class="tag">Duo · Trio · Quartet · Quintet</span>
+        <p class="desc">When the music has to be the headline. Scaled by event length and number of musicians on stage. Vetted players. Full sound provided.</p>
+        <div class="price-row">
+          <span class="from">From</span>
+          <span class="amount">$850</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="pricing-note">Weddings & receptions: <strong style="color:var(--champagne);">$650</strong> flat (up to 4 hr) · <a href="#booking">Request the full pricing sheet</a></p>
+  </div>
+</section>
+
+<!-- ───────── BOOKING ───────── -->
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Inquire</span>
+        <h2>Check <em>your</em> date.</h2>
+      </div>
+      <div class="right">
+        <p>Tell Anthony about your event. He'll respond within 24 hours with availability and a custom quote.</p>
+      </div>
+    </div>
+
+    <div class="booking-frame">
+      <form onsubmit="event.preventDefault(); alert('Inquiry received — Anthony will respond within 24 hours.'); this.reset();">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div class="field">
+            <label for="event-date">Event Date</label>
+            <input type="date" id="event-date" name="event-date" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="event-type">Event Type</label>
+            <select id="event-type" name="event-type" required>
+              <option value="">Select…</option>
+              <option>Wedding · Reception</option>
+              <option>Corporate Event</option>
+              <option>Worship · Church Service</option>
+              <option>Private Party</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="package">Package</label>
+            <select id="package" name="package">
+              <option value="">Not sure yet</option>
+              <option>Solo Sax</option>
+              <option>Sax + Band</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom: 1.5rem;">
+          <label for="venue">Venue / Location</label>
+          <input type="text" id="venue" name="venue" placeholder="City, state, or venue">
+        </div>
+        <div class="field">
+          <label for="message">Tell Anthony about your event</label>
+          <textarea id="message" name="message" placeholder="Guest count, vibe, special requests..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer>
+  <div class="footer-mark">Saxman</div>
+  <div class="footer-tag">Live Saxophone</div>
+  <div class="footer-meta">
+    Anthony Grayson · Erie, PA · <a href="mailto:booking@saxmanmusic.com">booking@saxmanmusic.com</a>
+  </div>
+  <div class="footer-meta" style="margin-top:1rem; opacity:0.6;">© 2026 Anthony Grayson · All rights reserved</div>
+</footer>
+
+<script>
+// Hide hero placeholder if image loads
+(function(){
+  var heroPhoto = document.getElementById('heroPhoto');
+  var img = new Image();
+  img.onload = function(){
+    heroPhoto.setAttribute('data-loaded', 'true');
+    var ph = heroPhoto.querySelector('.photo-placeholder');
+    if (ph) ph.style.display = 'none';
+  };
+  img.src = 'assets/hero-saxman.jpg';
+})();
+</script>
+
+</body>
+</html>
