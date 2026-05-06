@@ -84,7 +84,7 @@ To change links (Instagram, YouTube, etc.):
 
 The booking form is designed to submit to a Google Apps Script web app owned by the Gmail account that should send the emails.
 
-Destination inbox: `mistalamont@gmail.com`
+Destination inbox: `saxmangrayson@gmail.com`
 
 ### One-time setup
 
@@ -109,7 +109,7 @@ Destination inbox: `mistalamont@gmail.com`
 
 ### Test
 
-Submit the booking form from the live site. A new email should arrive at `mistalamont@gmail.com`, and replying to it should reply to the visitor's email address.
+Submit the booking form from the live site. A new email should arrive at `saxmangrayson@gmail.com`, and replying to it should reply to the visitor's email address.
 
 ---
 

@@ -1,4 +1,4 @@
-var RECIPIENT_EMAIL = 'mistalamont@gmail.com';
+var RECIPIENT_EMAIL = 'saxmangrayson@gmail.com';
 var SITE_NAME = 'Saxman';
 
 function doPost(e) {

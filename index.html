@@ -677,7 +677,7 @@ footer {
   <div class="footer-mark">Saxman</div>
   <div class="footer-tag">Live Saxophone</div>
   <div class="footer-meta">
-    Anthony Grayson · Erie, PA · <a href="mailto:booking@saxmanmusic.com">booking@saxmanmusic.com</a>
+    Anthony Grayson · Erie, PA · <a href="mailto:saxmangrayson@gmail.com">saxmangrayson@gmail.com</a>
   </div>
   <div class="footer-meta" style="margin-top:1rem; opacity:0.6;">© 2026 Anthony Grayson · All rights reserved</div>
 </footer>
@@ -697,7 +697,7 @@ var FORM_ENDPOINT = 'PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
   img.src = 'assets/hero-saxman.jpg';
 })();
 
-// Send booking inquiries to Google Apps Script, which emails mistalamont@gmail.com.
+// Send booking inquiries to Google Apps Script, which emails saxmangrayson@gmail.com.
 (function(){
   var form = document.getElementById('bookingForm');
   var status = document.getElementById('formStatus');
@@ -712,7 +712,7 @@ var FORM_ENDPOINT = 'PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
     event.preventDefault();
 
     if (!FORM_ENDPOINT || FORM_ENDPOINT.indexOf('PASTE_') === 0) {
-      setStatus('Form backend is not connected yet. Please email mistalamont@gmail.com.', 'error');
+      setStatus('Form backend is not connected yet. Please email saxmangrayson@gmail.com.', 'error');
       return;
     }
 
@@ -734,7 +734,7 @@ var FORM_ENDPOINT = 'PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
       form.reset();
       setStatus('Inquiry sent. Anthony will respond within 24 hours.', 'success');
     }).catch(function(){
-      setStatus('Something went wrong. Please email mistalamont@gmail.com directly.', 'error');
+      setStatus('Something went wrong. Please email saxmangrayson@gmail.com directly.', 'error');
     }).finally(function(){
       button.disabled = false;
       button.textContent = 'Send Inquiry';
