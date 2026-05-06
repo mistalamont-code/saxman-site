@@ -13,6 +13,7 @@ Live saxophone for weddings, corporate events, worship services, and private cel
 | `index.html` | The landing page — single-file site with inline CSS |
 | `assets/hero-saxman.jpg` | Hero performance photo |
 | `assets/sax-detail.jpg` | About-section detail photo |
+| `google-apps-script/Code.gs` | Gmail-powered form backend for booking inquiries |
 | `.gitignore` | Files to keep out of the repo |
 | `LICENSE` | Copyright notice |
 | `CNAME` | Custom domain (optional — only used if hosting on GitHub Pages with a custom domain) |
@@ -76,6 +77,39 @@ To swap photos:
 
 To change links (Instagram, YouTube, etc.):
 *The current scaled-down page has the booking form and links to email — when you're ready to add social links, edit the footer section in `index.html`.*
+
+---
+
+## Gmail contact form backend
+
+The booking form is designed to submit to a Google Apps Script web app owned by the Gmail account that should send the emails.
+
+Destination inbox: `mistalamont@gmail.com`
+
+### One-time setup
+
+1. Sign into the Gmail / Google account that should own the form backend.
+2. Go to `https://script.google.com/`.
+3. Create a new Apps Script project.
+4. Replace the default code with the contents of `google-apps-script/Code.gs`.
+5. Click **Deploy** -> **New deployment**.
+6. Choose **Web app**.
+7. Set **Execute as** to **Me**.
+8. Set **Who has access** to **Anyone**.
+9. Click **Deploy** and approve the permissions.
+10. Copy the web app URL. It should end in `/exec`.
+11. In `index.html`, replace:
+
+   ```js
+   var FORM_ENDPOINT = 'PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+   ```
+
+   with the copied web app URL.
+12. Commit and push the updated `index.html`.
+
+### Test
+
+Submit the booking form from the live site. A new email should arrive at `mistalamont@gmail.com`, and replying to it should reply to the visitor's email address.
 
 ---
 
