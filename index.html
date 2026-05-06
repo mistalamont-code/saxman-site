@@ -263,143 +263,6 @@ img { max-width: 100%; display: block; }
 	.about-body p.muted { color: var(--ash); font-size: 0.95rem; }
 	.about-body p .accent { color: var(--champagne); font-style: italic; }
 
-	/* ─── EXPERIENCE ─── */
-	.experience {
-	  background: var(--night);
-	  border-top: 1px solid var(--line);
-	  border-bottom: 1px solid var(--line);
-	}
-	.experience-grid {
-	  display: grid;
-	  grid-template-columns: 1fr 1.15fr;
-	  gap: 1px;
-	  background: var(--line);
-	  border: 1px solid var(--line);
-	}
-	.listen-panel,
-	.proof-panel {
-	  background: var(--ink);
-	  min-width: 0;
-	}
-	.listen-panel {
-	  padding: 3rem;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: space-between;
-	  gap: 2.5rem;
-	}
-	.listen-panel h2 {
-	  font-family: 'Cormorant Garamond', serif;
-	  font-weight: 400;
-	  font-size: clamp(2.1rem, 5vw, 3.5rem);
-	  line-height: 1;
-	}
-	.listen-panel h2 em { color: var(--champagne); font-style: italic; font-weight: 300; }
-	.listen-copy {
-	  color: var(--ash);
-	  max-width: 420px;
-	}
-	.pulse-card {
-	  border: 1px solid var(--line-strong);
-	  padding: 1.5rem;
-	  display: grid;
-	  gap: 1rem;
-	}
-	.pulse-row {
-	  display: flex;
-	  align-items: center;
-	  gap: 1rem;
-	  min-width: 0;
-	}
-	.play-mark {
-	  width: 54px;
-	  height: 54px;
-	  border: 1px solid var(--champagne);
-	  border-radius: 50%;
-	  display: grid;
-	  place-items: center;
-	  color: var(--champagne);
-	  flex: 0 0 auto;
-	}
-	.play-mark::before {
-	  content: '';
-	  width: 0;
-	  height: 0;
-	  border-top: 8px solid transparent;
-	  border-bottom: 8px solid transparent;
-	  border-left: 12px solid currentColor;
-	  margin-left: 3px;
-	}
-	.pulse-title {
-	  font-size: 0.72rem;
-	  letter-spacing: 0.3em;
-	  text-transform: uppercase;
-	  color: var(--champagne);
-	}
-	.pulse-subtitle {
-	  color: var(--ash);
-	  font-size: 0.92rem;
-	}
-	.wave {
-	  display: grid;
-	  grid-template-columns: repeat(18, 1fr);
-	  gap: 4px;
-	  height: 54px;
-	  align-items: center;
-	}
-	.wave span {
-	  display: block;
-	  width: 100%;
-	  height: calc(var(--level) * 1%);
-	  min-height: 8px;
-	  background: linear-gradient(180deg, var(--champagne) 0%, rgba(201,169,106,0.28) 100%);
-	  animation: waveLift 1.8s ease-in-out infinite;
-	  animation-delay: calc(var(--i) * 80ms);
-	}
-	.proof-panel {
-	  display: grid;
-	  grid-template-columns: 1fr 1fr;
-	}
-	.proof-item {
-	  padding: 2.4rem;
-	  border-left: 1px solid var(--line);
-	  border-bottom: 1px solid var(--line);
-	}
-	.proof-item:nth-child(odd) { border-left: none; }
-	.proof-item:nth-last-child(-n+2) { border-bottom: none; }
-	.proof-number {
-	  font-family: 'Cormorant Garamond', serif;
-	  font-size: 3rem;
-	  line-height: 1;
-	  color: var(--champagne);
-	  margin-bottom: 0.75rem;
-	}
-	.proof-label {
-	  font-size: 0.72rem;
-	  letter-spacing: 0.25em;
-	  text-transform: uppercase;
-	  color: var(--ash);
-	}
-	.testimonial {
-	  grid-column: span 2;
-	  padding: 2.4rem;
-	  border-top: 1px solid var(--line);
-	}
-	.testimonial blockquote {
-	  font-family: 'Cormorant Garamond', serif;
-	  font-size: clamp(1.35rem, 3vw, 2rem);
-	  line-height: 1.35;
-	  color: var(--pearl);
-	  margin-bottom: 1rem;
-	}
-	.testimonial cite {
-	  font-style: normal;
-	  font-size: 0.72rem;
-	  letter-spacing: 0.3em;
-	  text-transform: uppercase;
-	  color: var(--champagne);
-	}
-
 /* ─── PACKAGES (only 2) ─── */
 .packages {
   background: var(--shadow);
@@ -612,11 +475,6 @@ img { max-width: 100%; display: block; }
 	  margin-bottom: 0.35rem;
 	}
 
-	@keyframes waveLift {
-	  0%, 100% { transform: scaleY(0.7); opacity: 0.65; }
-	  50% { transform: scaleY(1); opacity: 1; }
-	}
-
 	@media (prefers-reduced-motion: reduce) {
 	  html { scroll-behavior: auto; }
 	  *, *::before, *::after {
@@ -697,10 +555,6 @@ footer {
   section { padding: 70px 1.25rem; }
 	  .section-head { grid-template-columns: 1fr; gap: 1.5rem; }
 	  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-	  .experience-grid { grid-template-columns: 1fr; }
-	  .listen-panel { padding: 2rem; }
-	  .proof-panel { grid-template-columns: 1fr 1fr; }
-	  .proof-item { padding: 1.75rem; }
 	  .package-grid { grid-template-columns: 1fr; }
 	  .booking-frame { padding: 1.75rem; }
 	  .booking-frame::before { top: 8px; left: 8px; right: 8px; bottom: 8px; }
@@ -719,18 +573,6 @@ footer {
 	  .btn { width: 100%; padding: 15px 18px; letter-spacing: 0.2em; }
 	  .btn-gold:hover { letter-spacing: 0.2em; }
 	  section { padding: 58px 1rem; }
-	  .listen-panel { padding: 1.5rem; }
-	  .pulse-card { padding: 1.2rem; }
-	  .wave { grid-template-columns: repeat(12, 1fr); gap: 3px; }
-	  .wave span:nth-child(n+13) { display: none; }
-	  .proof-panel { grid-template-columns: 1fr; }
-	  .proof-item,
-	  .proof-item:nth-child(odd),
-	  .proof-item:nth-last-child(-n+2) {
-	    border-left: none;
-	    border-bottom: 1px solid var(--line);
-	  }
-	  .testimonial { grid-column: span 1; padding: 1.75rem; }
 	  .package { padding: 2rem 1.5rem; }
 	  .package h3 { font-size: 1.9rem; }
 	  .pricing-note { font-size: 0.9rem; }
@@ -747,7 +589,6 @@ footer {
   <a href="#top" class="brand-mark">Saxman</a>
 	  <ul class="nav-links">
 	    <li><a href="#about">About</a></li>
-	    <li><a href="#experience">Feel</a></li>
 	    <li><a href="#packages">Packages</a></li>
 	    <li><a href="#booking">Inquire</a></li>
 	  </ul>
@@ -755,7 +596,6 @@ footer {
 </nav>
 	<div class="mobile-menu" id="mobileMenu">
 	  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
-	  <a href="#experience" onclick="document.getElementById('mobileMenu').classList.remove('open')">Feel</a>
 	  <a href="#packages" onclick="document.getElementById('mobileMenu').classList.remove('open')">Packages</a>
 	  <a href="#booking" onclick="document.getElementById('mobileMenu').classList.remove('open')">Inquire</a>
 	</div>
@@ -807,72 +647,6 @@ footer {
       </div>
     </div>
   </div>
-	</section>
-
-	<!-- ───────── EXPERIENCE ───────── -->
-	<section class="experience" id="experience">
-	  <div class="wrap">
-	    <div class="experience-grid">
-	      <div class="listen-panel">
-	        <div>
-	          <span class="eyebrow">Feel</span>
-	          <h2>Not background music. <em>A moment.</em></h2>
-	        </div>
-	        <p class="listen-copy">Warm sax lines for aisle walks, cocktail hours, dinner rooms, worship moments, and private celebrations that need something human in the air.</p>
-	        <div class="pulse-card" aria-label="Performance energy preview">
-	          <div class="pulse-row">
-	            <span class="play-mark" aria-hidden="true"></span>
-	            <div>
-	              <div class="pulse-title">Live Energy</div>
-	              <div class="pulse-subtitle">Ceremony calm to reception lift</div>
-	            </div>
-	          </div>
-	          <div class="wave" aria-hidden="true">
-	            <span style="--i:1; --level:36"></span>
-	            <span style="--i:2; --level:58"></span>
-	            <span style="--i:3; --level:42"></span>
-	            <span style="--i:4; --level:74"></span>
-	            <span style="--i:5; --level:64"></span>
-	            <span style="--i:6; --level:88"></span>
-	            <span style="--i:7; --level:48"></span>
-	            <span style="--i:8; --level:72"></span>
-	            <span style="--i:9; --level:38"></span>
-	            <span style="--i:10; --level:84"></span>
-	            <span style="--i:11; --level:56"></span>
-	            <span style="--i:12; --level:70"></span>
-	            <span style="--i:13; --level:44"></span>
-	            <span style="--i:14; --level:82"></span>
-	            <span style="--i:15; --level:52"></span>
-	            <span style="--i:16; --level:68"></span>
-	            <span style="--i:17; --level:34"></span>
-	            <span style="--i:18; --level:60"></span>
-	          </div>
-	        </div>
-	      </div>
-	      <div class="proof-panel">
-	        <div class="proof-item">
-	          <div class="proof-number">4 hr</div>
-	          <div class="proof-label">Wedding flat option</div>
-	        </div>
-	        <div class="proof-item">
-	          <div class="proof-number">30 mi</div>
-	          <div class="proof-label">Local Erie range</div>
-	        </div>
-	        <div class="proof-item">
-	          <div class="proof-number">PA</div>
-	          <div class="proof-label">Sound included</div>
-	        </div>
-	        <div class="proof-item">
-	          <div class="proof-number">1-5</div>
-	          <div class="proof-label">Solo to full band</div>
-	        </div>
-	        <div class="testimonial">
-	          <blockquote>"The kind of live touch people remember after the room clears."</blockquote>
-	          <cite>Wedding · Worship · Private events</cite>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
 	</section>
 
 	<!-- ───────── PACKAGES (only 2) ───────── -->
