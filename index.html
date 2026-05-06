@@ -77,8 +77,8 @@ img { max-width: 100%; display: block; }
   color: var(--ash);
   transition: color 0.3s;
 }
-.nav-links a:hover { color: var(--pearl); }
-.nav-toggle { display: none; background: none; border: none; color: var(--champagne); font-size: 1.3rem; cursor: pointer; }
+	.nav-links a:hover { color: var(--pearl); }
+	.nav-toggle { display: none; background: none; border: none; color: var(--champagne); font-size: 1.3rem; cursor: pointer; }
 
 /* ─── BUTTONS ─── */
 .btn {
@@ -100,7 +100,8 @@ img { max-width: 100%; display: block; }
   color: var(--champagne);
   border: 1px solid var(--champagne);
 }
-.btn-line:hover { background: var(--champagne); color: var(--ink); }
+	.btn-line:hover { background: var(--champagne); color: var(--ink); }
+	.btn:disabled { opacity: 0.7; cursor: wait; }
 
 /* ─── HERO ─── */
 .hero {
@@ -200,9 +201,10 @@ img { max-width: 100%; display: block; }
 .hero-photo:not([data-loaded]) .photo-placeholder { display: flex; }
 
 /* ─── SECTIONS ─── */
-section {
-  padding: 100px 2rem;
-}
+	section {
+	  padding: 100px 2rem;
+	  scroll-margin-top: 86px;
+	}
 .wrap { max-width: 1100px; margin: 0 auto; }
 .section-head {
   display: grid;
@@ -258,8 +260,145 @@ section {
   font-weight: 300;
   margin-bottom: 1.25rem;
 }
-.about-body p.muted { color: var(--ash); font-size: 0.95rem; }
-.about-body p .accent { color: var(--champagne); font-style: italic; }
+	.about-body p.muted { color: var(--ash); font-size: 0.95rem; }
+	.about-body p .accent { color: var(--champagne); font-style: italic; }
+
+	/* ─── EXPERIENCE ─── */
+	.experience {
+	  background: var(--night);
+	  border-top: 1px solid var(--line);
+	  border-bottom: 1px solid var(--line);
+	}
+	.experience-grid {
+	  display: grid;
+	  grid-template-columns: 1fr 1.15fr;
+	  gap: 1px;
+	  background: var(--line);
+	  border: 1px solid var(--line);
+	}
+	.listen-panel,
+	.proof-panel {
+	  background: var(--ink);
+	  min-width: 0;
+	}
+	.listen-panel {
+	  padding: 3rem;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-between;
+	  gap: 2.5rem;
+	}
+	.listen-panel h2 {
+	  font-family: 'Cormorant Garamond', serif;
+	  font-weight: 400;
+	  font-size: clamp(2.1rem, 5vw, 3.5rem);
+	  line-height: 1;
+	}
+	.listen-panel h2 em { color: var(--champagne); font-style: italic; font-weight: 300; }
+	.listen-copy {
+	  color: var(--ash);
+	  max-width: 420px;
+	}
+	.pulse-card {
+	  border: 1px solid var(--line-strong);
+	  padding: 1.5rem;
+	  display: grid;
+	  gap: 1rem;
+	}
+	.pulse-row {
+	  display: flex;
+	  align-items: center;
+	  gap: 1rem;
+	  min-width: 0;
+	}
+	.play-mark {
+	  width: 54px;
+	  height: 54px;
+	  border: 1px solid var(--champagne);
+	  border-radius: 50%;
+	  display: grid;
+	  place-items: center;
+	  color: var(--champagne);
+	  flex: 0 0 auto;
+	}
+	.play-mark::before {
+	  content: '';
+	  width: 0;
+	  height: 0;
+	  border-top: 8px solid transparent;
+	  border-bottom: 8px solid transparent;
+	  border-left: 12px solid currentColor;
+	  margin-left: 3px;
+	}
+	.pulse-title {
+	  font-size: 0.72rem;
+	  letter-spacing: 0.3em;
+	  text-transform: uppercase;
+	  color: var(--champagne);
+	}
+	.pulse-subtitle {
+	  color: var(--ash);
+	  font-size: 0.92rem;
+	}
+	.wave {
+	  display: grid;
+	  grid-template-columns: repeat(18, 1fr);
+	  gap: 4px;
+	  height: 54px;
+	  align-items: center;
+	}
+	.wave span {
+	  display: block;
+	  width: 100%;
+	  height: calc(var(--level) * 1%);
+	  min-height: 8px;
+	  background: linear-gradient(180deg, var(--champagne) 0%, rgba(201,169,106,0.28) 100%);
+	  animation: waveLift 1.8s ease-in-out infinite;
+	  animation-delay: calc(var(--i) * 80ms);
+	}
+	.proof-panel {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	}
+	.proof-item {
+	  padding: 2.4rem;
+	  border-left: 1px solid var(--line);
+	  border-bottom: 1px solid var(--line);
+	}
+	.proof-item:nth-child(odd) { border-left: none; }
+	.proof-item:nth-last-child(-n+2) { border-bottom: none; }
+	.proof-number {
+	  font-family: 'Cormorant Garamond', serif;
+	  font-size: 3rem;
+	  line-height: 1;
+	  color: var(--champagne);
+	  margin-bottom: 0.75rem;
+	}
+	.proof-label {
+	  font-size: 0.72rem;
+	  letter-spacing: 0.25em;
+	  text-transform: uppercase;
+	  color: var(--ash);
+	}
+	.testimonial {
+	  grid-column: span 2;
+	  padding: 2.4rem;
+	  border-top: 1px solid var(--line);
+	}
+	.testimonial blockquote {
+	  font-family: 'Cormorant Garamond', serif;
+	  font-size: clamp(1.35rem, 3vw, 2rem);
+	  line-height: 1.35;
+	  color: var(--pearl);
+	  margin-bottom: 1rem;
+	}
+	.testimonial cite {
+	  font-style: normal;
+	  font-size: 0.72rem;
+	  letter-spacing: 0.3em;
+	  text-transform: uppercase;
+	  color: var(--champagne);
+	}
 
 /* ─── PACKAGES (only 2) ─── */
 .packages {
@@ -303,15 +442,49 @@ section {
   color: var(--ash);
   margin-bottom: 1.5rem;
 }
-.package .desc {
-  font-size: 0.95rem;
-  color: var(--pearl);
-  line-height: 1.75;
-  margin-bottom: 2rem;
-  flex-grow: 1;
-}
-.package .price-row {
-  display: flex;
+	.package .desc {
+	  font-size: 0.95rem;
+	  color: var(--pearl);
+	  line-height: 1.75;
+	  margin-bottom: 1.25rem;
+	  flex-grow: 1;
+	}
+	.package details {
+	  border-top: 1px solid var(--line);
+	  padding-top: 1.2rem;
+	  margin-bottom: 1.5rem;
+	}
+	.package summary {
+	  cursor: pointer;
+	  color: var(--champagne);
+	  font-size: 0.72rem;
+	  font-weight: 500;
+	  letter-spacing: 0.28em;
+	  list-style: none;
+	  text-transform: uppercase;
+	}
+	.package summary::-webkit-details-marker { display: none; }
+	.package summary::after {
+	  content: '+';
+	  float: right;
+	  color: var(--ash);
+	  letter-spacing: 0;
+	}
+	.package details[open] summary::after { content: '-'; }
+	.package ul {
+	  list-style: none;
+	  color: var(--ash);
+	  font-size: 0.9rem;
+	  line-height: 1.8;
+	  margin-top: 1rem;
+	}
+	.package li::before {
+	  content: '—';
+	  color: var(--champagne);
+	  margin-right: 0.6rem;
+	}
+	.package .price-row {
+	  display: flex;
   align-items: baseline;
   gap: 0.5rem;
   padding-top: 1.5rem;
@@ -383,14 +556,24 @@ section {
   font-weight: 300;
   transition: border-color 0.3s;
 }
-.field input:focus, .field select:focus, .field textarea:focus {
-  outline: none;
-  border-bottom-color: var(--champagne);
-}
+	.field input:focus, .field select:focus, .field textarea:focus {
+	  outline: none;
+	  border-bottom-color: var(--champagne);
+	}
+	a:focus-visible,
+	button:focus-visible,
+	summary:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible {
+	  outline: 2px solid var(--champagne);
+	  outline-offset: 4px;
+	}
 .field textarea { min-height: 100px; resize: vertical; }
 .field select option { background: var(--ink); color: var(--pearl); }
-.form-submit { width: 100%; margin-top: 1.5rem; }
-.form-status {
+	.form-submit { width: 100%; margin-top: 1.5rem; }
+	.form-submit.is-sent { background: var(--champagne-soft); }
+	.form-status {
   min-height: 1.5rem;
   margin-top: 1rem;
   font-size: 0.85rem;
@@ -408,8 +591,40 @@ section {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border: 0;
-}
+	  border: 0;
+	}
+	.success-panel {
+	  display: none;
+	  margin-top: 1.5rem;
+	  border: 1px solid var(--line-strong);
+	  padding: 1.35rem;
+	  color: var(--ash);
+	  font-size: 0.95rem;
+	  line-height: 1.7;
+	}
+	.success-panel.show { display: block; }
+	.success-panel strong {
+	  display: block;
+	  color: var(--champagne);
+	  font-family: 'Cormorant Garamond', serif;
+	  font-size: 1.5rem;
+	  font-weight: 400;
+	  margin-bottom: 0.35rem;
+	}
+
+	@keyframes waveLift {
+	  0%, 100% { transform: scaleY(0.7); opacity: 0.65; }
+	  50% { transform: scaleY(1); opacity: 1; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+	  html { scroll-behavior: auto; }
+	  *, *::before, *::after {
+	    animation-duration: 0.01ms !important;
+	    animation-iteration-count: 1 !important;
+	    transition-duration: 0.01ms !important;
+	  }
+	}
 
 /* ─── FOOTER ─── */
 footer {
@@ -480,13 +695,49 @@ footer {
   }
 
   section { padding: 70px 1.25rem; }
-  .section-head { grid-template-columns: 1fr; gap: 1.5rem; }
-  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .package-grid { grid-template-columns: 1fr; }
-  .booking-frame { padding: 1.75rem; }
-  .booking-frame::before { top: 8px; left: 8px; right: 8px; bottom: 8px; }
-  .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
-}
+	  .section-head { grid-template-columns: 1fr; gap: 1.5rem; }
+	  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+	  .experience-grid { grid-template-columns: 1fr; }
+	  .listen-panel { padding: 2rem; }
+	  .proof-panel { grid-template-columns: 1fr 1fr; }
+	  .proof-item { padding: 1.75rem; }
+	  .package-grid { grid-template-columns: 1fr; }
+	  .booking-frame { padding: 1.75rem; }
+	  .booking-frame::before { top: 8px; left: 8px; right: 8px; bottom: 8px; }
+	  .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
+	}
+
+	@media (max-width: 560px) {
+	  .brand-mark { font-size: 1rem; letter-spacing: 0.32em; }
+	  .hero-text { padding: 96px 1.1rem 52px; }
+	  .hero-photo { min-height: 48vh; background-position: center top; }
+	  .hero-text .location { align-items: flex-start; }
+	  .hero-text .location::before { width: 32px; margin-top: 0.55rem; }
+	  .eyebrow { font-size: 0.62rem; letter-spacing: 0.32em; }
+	  .hero-text h1 { font-size: clamp(3.2rem, 22vw, 4.5rem); }
+	  .hero-text .name { font-size: 0.68rem; letter-spacing: 0.28em; }
+	  .btn { width: 100%; padding: 15px 18px; letter-spacing: 0.2em; }
+	  .btn-gold:hover { letter-spacing: 0.2em; }
+	  section { padding: 58px 1rem; }
+	  .listen-panel { padding: 1.5rem; }
+	  .pulse-card { padding: 1.2rem; }
+	  .wave { grid-template-columns: repeat(12, 1fr); gap: 3px; }
+	  .wave span:nth-child(n+13) { display: none; }
+	  .proof-panel { grid-template-columns: 1fr; }
+	  .proof-item,
+	  .proof-item:nth-child(odd),
+	  .proof-item:nth-last-child(-n+2) {
+	    border-left: none;
+	    border-bottom: 1px solid var(--line);
+	  }
+	  .testimonial { grid-column: span 1; padding: 1.75rem; }
+	  .package { padding: 2rem 1.5rem; }
+	  .package h3 { font-size: 1.9rem; }
+	  .pricing-note { font-size: 0.9rem; }
+	  .booking-frame { padding: 1.35rem; }
+	  .footer-mark { font-size: 1.3rem; letter-spacing: 0.35em; }
+	  .footer-meta { letter-spacing: 0.12em; overflow-wrap: anywhere; }
+	}
 </style>
 </head>
 <body>
@@ -494,18 +745,20 @@ footer {
 <!-- ───────── NAV ───────── -->
 <nav class="nav">
   <a href="#top" class="brand-mark">Saxman</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#packages">Packages</a></li>
-    <li><a href="#booking">Inquire</a></li>
-  </ul>
+	  <ul class="nav-links">
+	    <li><a href="#about">About</a></li>
+	    <li><a href="#experience">Feel</a></li>
+	    <li><a href="#packages">Packages</a></li>
+	    <li><a href="#booking">Inquire</a></li>
+	  </ul>
   <button class="nav-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('open')">≡</button>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
-  <a href="#packages" onclick="document.getElementById('mobileMenu').classList.remove('open')">Packages</a>
-  <a href="#booking" onclick="document.getElementById('mobileMenu').classList.remove('open')">Inquire</a>
-</div>
+	<div class="mobile-menu" id="mobileMenu">
+	  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+	  <a href="#experience" onclick="document.getElementById('mobileMenu').classList.remove('open')">Feel</a>
+	  <a href="#packages" onclick="document.getElementById('mobileMenu').classList.remove('open')">Packages</a>
+	  <a href="#booking" onclick="document.getElementById('mobileMenu').classList.remove('open')">Inquire</a>
+	</div>
 
 <!-- ───────── HERO ───────── -->
 <header class="hero" id="top">
@@ -554,10 +807,76 @@ footer {
       </div>
     </div>
   </div>
-</section>
+	</section>
 
-<!-- ───────── PACKAGES (only 2) ───────── -->
-<section class="packages" id="packages">
+	<!-- ───────── EXPERIENCE ───────── -->
+	<section class="experience" id="experience">
+	  <div class="wrap">
+	    <div class="experience-grid">
+	      <div class="listen-panel">
+	        <div>
+	          <span class="eyebrow">Feel</span>
+	          <h2>Not background music. <em>A moment.</em></h2>
+	        </div>
+	        <p class="listen-copy">Warm sax lines for aisle walks, cocktail hours, dinner rooms, worship moments, and private celebrations that need something human in the air.</p>
+	        <div class="pulse-card" aria-label="Performance energy preview">
+	          <div class="pulse-row">
+	            <span class="play-mark" aria-hidden="true"></span>
+	            <div>
+	              <div class="pulse-title">Live Energy</div>
+	              <div class="pulse-subtitle">Ceremony calm to reception lift</div>
+	            </div>
+	          </div>
+	          <div class="wave" aria-hidden="true">
+	            <span style="--i:1; --level:36"></span>
+	            <span style="--i:2; --level:58"></span>
+	            <span style="--i:3; --level:42"></span>
+	            <span style="--i:4; --level:74"></span>
+	            <span style="--i:5; --level:64"></span>
+	            <span style="--i:6; --level:88"></span>
+	            <span style="--i:7; --level:48"></span>
+	            <span style="--i:8; --level:72"></span>
+	            <span style="--i:9; --level:38"></span>
+	            <span style="--i:10; --level:84"></span>
+	            <span style="--i:11; --level:56"></span>
+	            <span style="--i:12; --level:70"></span>
+	            <span style="--i:13; --level:44"></span>
+	            <span style="--i:14; --level:82"></span>
+	            <span style="--i:15; --level:52"></span>
+	            <span style="--i:16; --level:68"></span>
+	            <span style="--i:17; --level:34"></span>
+	            <span style="--i:18; --level:60"></span>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="proof-panel">
+	        <div class="proof-item">
+	          <div class="proof-number">4 hr</div>
+	          <div class="proof-label">Wedding flat option</div>
+	        </div>
+	        <div class="proof-item">
+	          <div class="proof-number">30 mi</div>
+	          <div class="proof-label">Local Erie range</div>
+	        </div>
+	        <div class="proof-item">
+	          <div class="proof-number">PA</div>
+	          <div class="proof-label">Sound included</div>
+	        </div>
+	        <div class="proof-item">
+	          <div class="proof-number">1-5</div>
+	          <div class="proof-label">Solo to full band</div>
+	        </div>
+	        <div class="testimonial">
+	          <blockquote>"The kind of live touch people remember after the room clears."</blockquote>
+	          <cite>Wedding · Worship · Private events</cite>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- ───────── PACKAGES (only 2) ───────── -->
+	<section class="packages" id="packages">
   <div class="wrap">
     <div class="section-head">
       <div class="left">
@@ -573,21 +892,37 @@ footer {
       <div class="package">
         <span class="num">i.</span>
         <h3>Solo <em>Sax</em></h3>
-        <span class="tag">Anthony · Sound System Included</span>
-        <p class="desc">Just Anthony, his horn, and his own PA. Weddings, ceremonies, cocktail hours, dinners, worship services, corporate events, private parties.</p>
-        <div class="price-row">
-          <span class="from">From</span>
-          <span class="amount">$350</span>
+	        <span class="tag">Anthony · Sound System Included</span>
+	        <p class="desc">Just Anthony, his horn, and his own PA. Weddings, ceremonies, cocktail hours, dinners, worship services, corporate events, private parties.</p>
+	        <details>
+	          <summary>What it covers</summary>
+	          <ul>
+	            <li>Ceremony music or featured moments</li>
+	            <li>Cocktail hour, dinner, worship, or private events</li>
+	            <li>Anthony's PA for clean room coverage</li>
+	          </ul>
+	        </details>
+	        <div class="price-row">
+	          <span class="from">From</span>
+	          <span class="amount">$350</span>
         </div>
       </div>
 
       <div class="package">
         <span class="num">ii.</span>
         <h3>Sax <em>+</em> Band</h3>
-        <span class="tag">Duo · Trio · Quartet · Quintet</span>
-        <p class="desc">When the music has to be the headline. Scaled by event length and number of musicians on stage. Vetted players. Full sound provided.</p>
-        <div class="price-row">
-          <span class="from">From</span>
+	        <span class="tag">Duo · Trio · Quartet · Quintet</span>
+	        <p class="desc">When the music has to be the headline. Scaled by event length and number of musicians on stage. Vetted players. Full sound provided.</p>
+	        <details>
+	          <summary>What it covers</summary>
+	          <ul>
+	            <li>Reception sets and feature performances</li>
+	            <li>Duo, trio, quartet, or quintet configurations</li>
+	            <li>Custom quote based on players and event length</li>
+	          </ul>
+	        </details>
+	        <div class="price-row">
+	          <span class="from">From</span>
           <span class="amount">$850</span>
         </div>
       </div>
@@ -665,9 +1000,13 @@ footer {
           <label for="message">Tell Anthony about your event</label>
           <textarea id="message" name="message" placeholder="Guest count, vibe, special requests..."></textarea>
         </div>
-        <button type="submit" class="btn btn-gold form-submit" id="submitButton">Send Inquiry</button>
-        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-      </form>
+	        <button type="submit" class="btn btn-gold form-submit" id="submitButton">Send Inquiry</button>
+	        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+	        <div class="success-panel" id="successPanel" aria-live="polite">
+	          <strong>Inquiry sent.</strong>
+	          Your request is headed to saxmangrayson@gmail.com. Anthony will reply with availability and next steps.
+	        </div>
+	      </form>
     </div>
   </div>
 </section>
@@ -699,9 +1038,10 @@ var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz4EgzEI7_03IUIf3oJ
 
 // Send booking inquiries to Google Apps Script, which emails saxmangrayson@gmail.com.
 (function(){
-  var form = document.getElementById('bookingForm');
-  var status = document.getElementById('formStatus');
-  var button = document.getElementById('submitButton');
+	  var form = document.getElementById('bookingForm');
+	  var status = document.getElementById('formStatus');
+	  var button = document.getElementById('submitButton');
+	  var successPanel = document.getElementById('successPanel');
 
   function setStatus(message, type) {
     status.textContent = message;
@@ -722,20 +1062,26 @@ var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz4EgzEI7_03IUIf3oJ
       return;
     }
 
-    button.disabled = true;
-    button.textContent = 'Sending...';
-    setStatus('Sending inquiry...', '');
+	    button.disabled = true;
+	    button.textContent = 'Sending...';
+	    button.classList.remove('is-sent');
+	    successPanel.classList.remove('show');
+	    setStatus('Sending inquiry...', '');
 
     fetch(FORM_ENDPOINT, {
       method: 'POST',
       mode: 'no-cors',
       body: new URLSearchParams(formData)
-    }).then(function(){
-      form.reset();
-      setStatus('Inquiry sent. Anthony will respond within 24 hours.', 'success');
-    }).catch(function(){
-      setStatus('Something went wrong. Please email saxmangrayson@gmail.com directly.', 'error');
-    }).finally(function(){
+	    }).then(function(){
+	      form.reset();
+	      button.classList.add('is-sent');
+	      successPanel.classList.add('show');
+	      setStatus('Inquiry sent. Anthony will respond within 24 hours.', 'success');
+	    }).catch(function(){
+	      button.classList.remove('is-sent');
+	      successPanel.classList.remove('show');
+	      setStatus('Something went wrong. Please email saxmangrayson@gmail.com directly.', 'error');
+	    }).finally(function(){
       button.disabled = false;
       button.textContent = 'Send Inquiry';
     });
